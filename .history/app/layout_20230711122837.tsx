@@ -1,7 +1,3 @@
-import Footer from './components/Footer';
-import Navbar from './components/Navbar';
-import './globals.css';
-
 export const metadata = {
 	title: 'Flexibble',
 	description: 'Showcase and discover developer projects',
@@ -10,11 +6,7 @@ export const metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
 	return (
 		<html lang='en'>
-			<body>
-				<Navbar />
-				<main> {children}</main>
-				<Footer />
-			</body>
+			<body>{children}</body>
 		</html>
 	);
 }

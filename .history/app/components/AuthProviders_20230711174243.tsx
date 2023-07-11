@@ -7,9 +7,9 @@ type Provider = {
 	id: string;
 	name: string;
 	type: string;
-	signinUrl: string;
+	singinUrl: string;
 	callbackUrl: string;
-	signinUrlParams?: Record<string, string> | undefined;
+	signinUrlParams: Record<string, string> | null;
 };
 
 type Providers = Record<string, Provider>;
@@ -21,7 +21,7 @@ const AuthProviders = () => {
 		const fetchProviders = async () => {
 			const res = await getProviders();
 			console.log(res);
-			setProviders(res);
+			//setProviders(res);
 		};
 		fetchProviders();
 	}, []);
@@ -30,9 +30,7 @@ const AuthProviders = () => {
 		return (
 			<div>
 				{Object.values(providers).map((provider: Provider, index) => (
-					<button key={index} onClick={() => signIn(provider?.id)}>
-						{provider.id}
-					</button>
+					<button key={index}>{provider.id}</button>
 				))}
 			</div>
 		);
